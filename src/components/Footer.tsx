@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="py-16 relative"
+      className="py-16 pb-[calc(4rem+5vh)] lg:pb-16 relative"
       style={{
         backgroundColor: 'var(--color-bg)',
         borderTop: '1px solid var(--color-border)',
@@ -140,6 +140,26 @@ export default function Footer() {
             }}
           >
             FOODISM HISAR
+          </p>
+        </div>
+
+        {/* Pinaro branding */}
+        <div className="mt-8 text-center">
+          <p
+            className="font-body"
+            style={{ fontSize: 'var(--text-micro)', color: 'var(--color-text-muted)', letterSpacing: '0.05em' }}
+          >
+            A{' '}
+            <a
+              href="https://pinaro.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold transition-colors"
+              style={{ color: 'var(--color-accent)' }}
+            >
+              Pinaro
+            </a>
+            {' '}Product
           </p>
         </div>
       </div>

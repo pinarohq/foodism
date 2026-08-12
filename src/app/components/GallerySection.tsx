@@ -3,15 +3,13 @@
 import React from 'react';
 
 const GALLERY_ITEMS = [
-  { id: 1, category: 'Food Review', caption: 'Hidden Cafe Hisar', gradientClass: 'gallery-food-1', tall: true, emoji: '☕' },
-  { id: 2, category: 'Travel', caption: 'Banaras Ghats', gradientClass: 'gallery-travel-1', tall: false, emoji: '✈️' },
-  { id: 3, category: 'Food Review', caption: 'Street Food Trail', gradientClass: 'gallery-food-2', tall: false, emoji: '🍜' },
-  { id: 4, category: 'Lifestyle', caption: 'Morning Chai Ritual', gradientClass: 'gallery-lifestyle-1', tall: true, emoji: '🌅' },
-  { id: 5, category: 'Event', caption: 'Flipkart Event Coverage', gradientClass: 'gallery-event-1', tall: false, emoji: '🎪' },
-  { id: 6, category: 'Food Review', caption: 'Restaurant Launch Reel', gradientClass: 'gallery-food-3', tall: false, emoji: '🍽️' },
-  { id: 7, category: 'Travel', caption: 'Vrindavan Vibes', gradientClass: 'gallery-travel-2', tall: true, emoji: '🌸' },
-  { id: 8, category: 'Food Review', caption: 'Hisar Biryani Hunt', gradientClass: 'gallery-food-4', tall: false, emoji: '🍛' },
-  { id: 9, category: 'Lifestyle', caption: 'Brand Collab Feature', gradientClass: 'gallery-lifestyle-2', tall: false, emoji: '💄' },
+  { id: 1, category: 'Food Review', caption: 'Hidden Cafe Hisar', image: '/assets/images/food1.webp', tall: true },
+  { id: 2, category: 'Travel', caption: 'Banaras Ghats', image: '/assets/images/travel1.webp', tall: false },
+  { id: 3, category: 'Food Review', caption: 'Street Food Trail', image: '/assets/images/food2.webp', tall: false },
+  { id: 4, category: 'Lifestyle', caption: 'Morning Chai Ritual', image: '/assets/images/lifestyle1.webp', tall: true },
+  { id: 5, category: 'Food Review', caption: 'Restaurant Launch Reel', image: '/assets/images/food3.webp', tall: false },
+  { id: 6, category: 'Lifestyle', caption: 'Brand Collab Feature', image: '/assets/images/lifestyle2.webp', tall: false },
+  { id: 7, category: 'Food Review', caption: 'Hisar Biryani Hunt', image: '/assets/images/food4.webp', tall: true },
 ];
 
 export default function GallerySection() {
@@ -66,10 +64,11 @@ export default function GallerySection() {
                 }
               }}
             >
-              {/* Gradient placeholder */}
-              <div
-                className={`${item.gradientClass} w-full h-full transition-transform duration-500 group-hover:scale-105`}
-                aria-hidden="true"
+              {/* Image */}
+              <img
+                src={item.image}
+                alt={item.caption}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
               {/* Category badge */}
@@ -90,14 +89,6 @@ export default function GallerySection() {
                 >
                   {item.category}
                 </span>
-              </div>
-
-              {/* Emoji center */}
-              <div
-                className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0"
-                aria-hidden="true"
-              >
-                <span style={{ fontSize: '2.5rem', opacity: 0.6 }}>{item.emoji}</span>
               </div>
 
               {/* Hover overlay */}
