@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React from 'react';
 
 
 const TAGS = [
@@ -11,56 +11,7 @@ const TAGS = [
   'Brand Collaborator',
 ];
 
-const CARDS = [
-  {
-    label: 'Food',
-    gradient: 'linear-gradient(135deg, #3D1A0A 0%, #7A3010 50%, #E8693A 100%)',
-    icon: '🍽️',
-    text: 'Restaurant Reviews & Street Food Finds',
-  },
-  {
-    label: 'Travel',
-    gradient: 'linear-gradient(135deg, #0A1A2E 0%, #1A3A5C 50%, #2E6B8A 100%)',
-    icon: '✈️',
-    text: 'From Hisar to Banaras & Beyond',
-  },
-  {
-    label: 'Lifestyle',
-    gradient: 'linear-gradient(135deg, #2E0A1A 0%, #6B1A35 50%, #D4547A 100%)',
-    icon: '✨',
-    text: 'Authentic Moments, Real Stories',
-  },
-];
-
 export default function AboutSection() {
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const handleMouseMove = async (e: React.MouseEvent<HTMLDivElement>, index: number) => {
-    const card = cardRefs.current[index];
-    if (!card) return;
-    try {
-      const { gsap } = await import('gsap');
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      gsap.to(card, {
-        rotateY: x * 12,
-        rotateX: -y * 12,
-        duration: 0.3,
-        ease: 'power2.out',
-        transformPerspective: 1000,
-      });
-    } catch { /* noop */ }
-  };
-
-  const handleMouseLeave = async (index: number) => {
-    const card = cardRefs.current[index];
-    if (!card) return;
-    try {
-      const { gsap } = await import('gsap');
-      gsap.to(card, { rotateY: 0, rotateX: 0, duration: 0.5, ease: 'power2.out' });
-    } catch { /* noop */ }
-  };
 
   return (
     <section
@@ -72,50 +23,18 @@ export default function AboutSection() {
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT — Photo cards */}
-          <div className="tilt-card-wrapper relative h-80 lg:h-auto">
-            <div className="relative flex justify-center lg:justify-start" style={{ height: 420 }}>
-              {CARDS.map((card, i) => (
-                <div
-                  key={card.label}
-                  ref={(el) => { cardRefs.current[i] = el; }}
-                  className="about-card absolute rounded-3xl overflow-hidden cursor-pointer"
-                  style={{
-                    width: 220,
-                    height: 280,
-                    background: card.gradient,
-                    top: i * 28,
-                    left: i * 36,
-                    zIndex: i + 1,
-                    border: '1px solid var(--color-border)',
-                    boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
-                    transition: 'box-shadow 0.3s',
-                  }}
-                  onMouseMove={(e) => handleMouseMove(e, i)}
-                  onMouseLeave={() => handleMouseLeave(i)}
-                  aria-label={`${card.label} content category`}
-                >
-                  <div className="p-6 h-full flex flex-col justify-between">
-                    <div>
-                      <span
-                        className="font-body font-bold uppercase tracking-widest"
-                        style={{ fontSize: 'var(--text-micro)', color: 'rgba(242,237,230,0.6)' }}
-                      >
-                        {card.label}
-                      </span>
-                    </div>
-                    <div>
-                      <div className="text-4xl mb-3" aria-hidden="true">{card.icon}</div>
-                      <p
-                        className="font-display font-bold leading-tight"
-                        style={{ fontSize: '1.1rem', color: 'var(--color-text)' }}
-                      >
-                        {card.text}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+          {/* LEFT — Creator Photo */}
+          <div className="flex justify-center lg:justify-start">
+            <div className="relative rounded-3xl overflow-hidden w-full max-w-[280px] h-[360px] lg:max-w-[380px] lg:h-[480px]">
+              <img
+                src="/assets/images/her-photo.webp"
+                alt="Foodism Hisar — The Creator Behind the Lens"
+                className="w-full h-full object-cover rounded-3xl"
+                style={{
+                  border: '1px solid var(--color-border)',
+                  boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
+                }}
+              />
             </div>
           </div>
 

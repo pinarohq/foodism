@@ -85,7 +85,7 @@ export default function HeroSection() {
 
   // Hero entrance animation
   useEffect(() => {
-    const selectors = '.hero-eyebrow, .hero-word-1, .hero-word-2, .hero-word-3, .hero-subtext, .hero-cta-1, .hero-cta-2, .hero-stat-item, .hero-image-area, .hero-badge';
+    const selectors = '.hero-eyebrow, .hero-word-1, .hero-word-2, .hero-subtext, .hero-cta-1, .hero-cta-2, .hero-stat-item, .hero-image-area, .hero-badge';
 
     const runHeroAnim = async () => {
       try {
@@ -99,7 +99,6 @@ export default function HeroSection() {
         tl.to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' })
           .fromTo('.hero-word-1', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, '-=0.2')
           .fromTo('.hero-word-2', { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
-          .fromTo('.hero-word-3', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
           .fromTo('.hero-subtext', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }, '-=0.2')
           .fromTo('.hero-cta-1', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }, '-=0.2')
           .fromTo('.hero-cta-2', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }, '-=0.1')
@@ -133,7 +132,7 @@ export default function HeroSection() {
       id="hero"
       aria-label="Foodism Hisar — Hero"
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ backgroundColor: 'var(--color-bg)', paddingTop: '7rem', paddingBottom: '4rem' }}
+      style={{ backgroundColor: 'rgba(13, 11, 8, 0.7)', paddingTop: '7rem', paddingBottom: '4rem' }}
     >
       {/* Particles */}
       <div ref={particlesRef} className="particles-container" aria-hidden="true" />
@@ -178,27 +177,20 @@ export default function HeroSection() {
               >
                 THE WORLD
               </span>
-              <span
-                className="hero-word-3 block"
-                style={{ fontSize: 'var(--text-hero)' }}
-              >
-                ONE REEL
-                <br />
-                AT A TIME
-              </span>
+
             </h1>
 
             {/* Subtext */}
             <p
-              className="hero-subtext max-w-lg leading-relaxed"
+              className="hero-subtext max-w-lg"
               style={{
                 fontSize: 'var(--text-subhead)',
                 color: 'var(--color-text-muted)',
                 fontFamily: 'var(--font-body)',
+                lineHeight: '1.4',
               }}
             >
-              Food reviews. Travel stories. Lifestyle moments. Straight from Hisar, Haryana —
-              shared with 20,000+ people who trust every word.
+              Food reviews. Travel stories. Lifestyle moments. Shared with 20,000+ people who trust every word.
             </p>
 
             {/* CTA Buttons */}
@@ -231,7 +223,7 @@ export default function HeroSection() {
                 { value: 'Hisar', label: 'Haryana' },
               ].map((stat, i) => (
                 <React.Fragment key={stat.label}>
-                  <div className="hero-stat-item opacity-0 flex flex-col items-center px-4 first:pl-0">
+                  <div className="hero-stat-item flex flex-col items-center px-4 first:pl-0">
                     <span
                       className="font-display font-bold"
                       style={{ fontSize: '1.25rem', color: 'var(--color-text)' }}
@@ -294,7 +286,7 @@ export default function HeroSection() {
 
                 {/* Verified Badge */}
                 <div
-                  className="hero-badge opacity-0 absolute -bottom-3 left-1/2 floating-badge"
+                  className="hero-badge absolute -bottom-3 left-1/2 floating-badge"
                   style={{ transform: 'translateX(-50%)' }}
                   aria-label="Verified Reel Creator badge"
                 >
@@ -307,7 +299,7 @@ export default function HeroSection() {
 
               {/* Floating stat badges */}
               <div
-                className="hero-badge opacity-0 absolute -left-8 top-8 floating-badge animate-badge-float-1"
+                className="hero-badge absolute -left-8 top-8 floating-badge animate-badge-float-1"
                 aria-label="20.3K Instagram Followers"
               >
                 <span aria-hidden="true">📊</span>
@@ -318,7 +310,7 @@ export default function HeroSection() {
               </div>
 
               <div
-                className="hero-badge opacity-0 absolute -right-4 top-24 floating-badge animate-badge-float-2"
+                className="hero-badge absolute -right-4 top-24 floating-badge animate-badge-float-2"
                 aria-label="8.2% average engagement rate"
               >
                 <span aria-hidden="true">🔥</span>
@@ -329,7 +321,7 @@ export default function HeroSection() {
               </div>
 
               <div
-                className="hero-badge opacity-0 absolute -right-6 bottom-20 floating-badge animate-badge-float-3"
+                className="hero-badge absolute -right-6 bottom-20 floating-badge animate-badge-float-3"
                 aria-label="200+ brand collaborations"
               >
                 <span aria-hidden="true">🤝</span>
@@ -341,7 +333,7 @@ export default function HeroSection() {
 
               {/* Reel mockup card */}
               <div
-                className="hero-badge opacity-0 absolute -left-4 bottom-10 floating-badge"
+                className="hero-badge absolute -left-4 bottom-10 floating-badge"
                 style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem', padding: '0.75rem 1rem', borderRadius: '1rem' }}
                 aria-label="Latest Reel: 90K views"
               >

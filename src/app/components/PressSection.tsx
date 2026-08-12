@@ -102,15 +102,14 @@ export default function PressSection() {
             {/* Columns layout */}
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div
-                className="rounded-xl flex items-center justify-center"
-                style={{
-                  height: 120,
-                  background: 'linear-gradient(135deg, #3D1A0A, #E8693A)',
-                  fontSize: '2.5rem',
-                }}
-                aria-label="Food photography illustration"
+                className="rounded-xl overflow-hidden"
+                style={{ height: 120 }}
               >
-                📸
+                <img
+                  src="/assets/images/new-photo.webp"
+                  alt="Foodism Hisar press feature"
+                  className="w-full h-full object-cover rounded-xl"
+                />
               </div>
               <div className="flex flex-col gap-2">
                 <p

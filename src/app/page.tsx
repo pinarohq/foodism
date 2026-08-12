@@ -19,6 +19,18 @@ import GSAPInit from './components/GSAPInit';
 export default function HomePage() {
   return (
     <>
+      {/* Fixed background image — page scrolls over this */}
+      <div
+        className="fixed inset-0 z-0 pointer-events-none"
+        aria-hidden="true"
+      >
+        <img
+          src="/assets/images/absolute image.webp"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+      </div>
+
       {/* Skip link for accessibility */}
       <a href="#main-content" className="skip-link">
         Skip to main content
@@ -34,7 +46,7 @@ export default function HomePage() {
       <GSAPInit />
 
       {/* Main Content */}
-      <main id="main-content" role="main">
+      <main id="main-content" role="main" className="relative z-10">
         <HeroSection />
         <AboutSection />
         <StatsBar />
@@ -46,7 +58,9 @@ export default function HomePage() {
         <FinalCTASection />
       </main>
 
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
 
       {/* Floating WhatsApp Button (mobile) */}
       <WhatsAppFloat />

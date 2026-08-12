@@ -52,7 +52,7 @@ export default function CollabsSection() {
       id="collabs"
       aria-labelledby="collabs-heading"
       className="py-24 overflow-hidden"
-      style={{ backgroundColor: 'var(--color-surface)' }}
+      style={{ backgroundColor: 'rgba(13, 11, 8, 0.75)' }}
     >
       <div className="section-container">
         {/* Header */}
